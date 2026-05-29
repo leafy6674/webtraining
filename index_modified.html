@@ -173,6 +173,49 @@
       margin-bottom: 0;
     }
 
+
+    .answer-area.narrow-answer p {
+      max-width: 25em;
+      text-align: left;
+      line-height: 1.85;
+    }
+
+    .answer-area.narrow-answer .no-indent {
+      text-indent: 0;
+    }
+
+    .code-compare {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 1rem 0;
+      background: #ffffff;
+      border: 1px solid #94a3b8;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .code-compare td {
+      width: 50%;
+      padding: 18px 24px;
+      vertical-align: top;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #1f2937;
+    }
+
+    .code-compare td + td {
+      border-left: 1px solid #94a3b8;
+    }
+
+    .code-compare strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      color: #14532d;
+    }
+
     .note {
       margin-top: 14px;
       color: var(--muted);
@@ -185,6 +228,10 @@
       color: var(--muted);
       font-size: 0.95rem;
     }
+
+    
+
+
 
     @media (max-width: 760px) {
       header {
@@ -214,29 +261,6 @@
         max-width: 360px;
         margin: 20 auto;
       }
-      .code-compare {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 1rem 0;
-        background: #ffffff;
-      }
-
-      .code-compare td {
-        width: 50%;
-        padding: 18px;
-        border: 1px solid #94a3b8;
-        vertical-align: top;
-
-        font-family: Consolas, Monaco, monospace;
-        font-size: 1rem;
-        line-height: 1.8;
-        color: #1f2937;
-      }
-
-      .code-compare strong {
-        font-family: "Noto Sans TC", sans-serif;
-        color: #14532d;
-      } 
     }
   </style>
 </head>
@@ -372,14 +396,26 @@
           <h3>請簡述對於軟體工程的領域偏好和職涯想像。</h3>
         </div>
         
-        <div class="answer-area">
+        <div class="answer-area narrow-answer">
           <p>
-            我對軟體工程中「資料分析、資料整理、系統邏輯歸納」這類偏向分析型的工作較有興趣。
+            我對軟體工程中<br>
+            「資料分析、資料整理、<br>
+            系統邏輯歸納」<br>
+            這類偏向分析型的工作<br>
+            較有興趣。
           </p>
 
           <p>
-            除了應用層開發之外，我也對 Programming Language Engineering（程式語言工程）與不同語言背後的設計理念很有興趣。
-            比起單純把功能做出來，我更喜歡研究語言本身的設計取捨，以及它們如何影響效能、記憶體行為與開發思維。
+            除了應用層開發之外，<br>
+            我也對 Programming Language Engineering<br>
+            （程式語言工程）<br>
+            與不同語言背後的設計理念<br>
+            很有興趣。<br>
+            比起單純把功能做出來，<br>
+            我更喜歡研究語言本身的<br>
+            設計取捨，<br>
+            以及它們如何影響效能、<br>
+            記憶體行為與開發思維。
           </p>
 
           <p>例如：</p>
@@ -387,28 +423,41 @@
           <table class="code-compare">
             <tr>
               <td>
-                <strong>C++：</strong><br>
+                <strong>C++：</strong>
                 for (string str : strs) { ... }
               </td>
               <td>
-                <strong>Java：</strong><br>
+                <strong>Java：</strong>
                 for (String str : strs) { ... }
               </td>
             </tr>
           </table>
 
           <p>
-            （語法都會編譯成功，但語意完全不同。）
+            （語法都會編譯成功，<br>
+            但語意完全不同。）
           </p>
 
           <p>
-            職涯方面，我想走軟體工程、資料處理或偏後端邏輯相關方向發展。
-            我覺得剛開始進入業界時，應該還需要一段時間自我抗壓訓練，適應實務開發節奏與團隊合作模式。
+            職涯方面，<br>
+            我想走軟體工程、<br>
+            資料處理或偏後端邏輯<br>
+            相關方向發展。<br>
+            我覺得剛開始進入業界時，<br>
+            應該還需要一段時間<br>
+            自我抗壓訓練，<br>
+            適應實務開發節奏<br>
+            與團隊合作模式。
           </p>
 
           <p>
-            除了技術能力之外，還需要良好的壓力管理與持續學習能力，逐步建立穩定的工作節奏，
-            在技術成長、工作生產與生活平衡三者之間找到適合自己的方式。
+            除了技術能力之外，<br>
+            還需要良好的壓力管理<br>
+            與持續學習能力，<br>
+            逐步建立穩定的工作節奏，<br>
+            在技術成長、工作生產，<br>
+            與生活平衡三者之間<br>
+            找到適合自己的方式。
           </p>
         </div>
         
