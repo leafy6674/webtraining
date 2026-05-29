@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>軟體工程訓練申請回覆</title>
+  <style>
+    :root {
+      --bg: #f4fbf6;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #15803d;
+      --primary-dark: #14532d;
+      --primary-light: #22c55e;
+      --border: #cfe7d6;
+      --soft: #ecfdf3;
+      --soft-2: #f6fff8;
+      --shadow: rgba(15, 23, 42, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      background: linear-gradient(135deg, #edfdf4 0%, #f7fff9 45%, #dcfce7 100%);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    header {
+      padding: 72px 20px 52px;
+      text-align: center;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.22), transparent 32%),
+        linear-gradient(135deg, #14532d, #15803d, #22c55e);
+      color: white;
+    }
+
+    header .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.36);
+      border-radius: 999px;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      opacity: 0.95;
+    }
+
+    header h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      letter-spacing: 0.04em;
+      font-weight: 800;
+    }
+
+    header p {
+      margin: 0 auto;
+      max-width: 780px;
+      font-size: 1.05rem;
+      opacity: 0.94;
+    }
+
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: -36px auto 64px;
+    }
+
+    .intro-card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 24px 60px var(--shadow);
+      backdrop-filter: blur(12px);
+      margin-bottom: 28px;
+    }
+
+    .intro-card h2 {
+      margin: 0 0 10px;
+      color: var(--primary-dark);
+      font-size: 1.45rem;
+    }
+
+    .intro-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .question-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .question-card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .question-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 7px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary-dark), var(--primary-light));
+    }
+
+    .question-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .question-number {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--primary-dark);
+      font-weight: 800;
+      border: 1px solid #bbf7d0;
+    }
+
+    .question-card h3 {
+      margin: 2px 0 0;
+      font-size: 1.16rem;
+      color: #111827;
+      line-height: 1.5;
+    }
+
+    .answer-area {
+      min-height: 170px;
+      padding: 18px 20px;
+      border: 1.5px dashed #86efac;
+      border-radius: 18px;
+      background: var(--soft-2);
+      color: #64748b;
+    }
+
+    .answer-area p {
+      margin: 0;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 20px 48px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        padding: 56px 20px 42px;
+      }
+
+      main {
+        margin-top: -26px;
+      }
+
+      .intro-card,
+      .question-card {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      .question-top {
+        gap: 12px;
+      }
+
+      .question-number {
+        width: 36px;
+        height: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Application Portfolio</div>
+    <h1>軟體工程訓練申請回覆</h1>
+    <p>
+      這是一份用於 GitHub Pages 上線的申請網頁。版面採用單欄式閱讀設計，
+      每一題皆預留回答區域，方便後續自行修改與補充。
+    </p>
+  </header>
+
+  <main>
+    <section class="intro-card">
+      <h2>申請者回覆頁面</h2>
+      <p>
+        以下內容依照申請問題逐題整理。請將每個回答區域中的提示文字，
+        替換成自己的正式回覆內容。
+      </p>
+    </section>
+
+    <section class="question-list">
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">1</div>
+          <h3>個人簡介和申請動機？</h3>
+        </div>
+        <div class="answer-area">
+          <p>請在此填寫你的個人背景、學習動機、為什麼想參加這個訓練，以及你希望透過訓練獲得什麼能力。</p>
+        </div>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">2</div>
+          <h3>曾經做過哪些軟體工程技術相關的學習？若有作品請分享給我們。</h3>
+        </div>
+        <div class="answer-area">
+          <p>請在此填寫你學過的程式語言、課程、工具、技術主題、專案經驗、GitHub 連結或作品展示。</p>
+        </div>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">3</div>
+          <h3>如果參與這個訓練，會怎麼安排學習時間？</h3>
+        </div>
+        <div class="answer-area">
+          <p>請在此填寫你的學習時間規劃，例如平日晚上、週末、複習、實作、專案開發與進度管理方式。</p>
+        </div>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">4</div>
+          <h3>請簡述對於軟體工程的領域偏好和職涯想像。</h3>
+        </div>
+        <div class="answer-area">
+          <p>請在此填寫你偏好的領域，例如後端、資料工程、AI 工程、語言工程、資料分析、全端開發等，以及你對未來職涯的想像。</p>
+        </div>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">5</div>
+          <h3>請描述一件產生明顯負面情緒的經歷，如何處理該情緒？</h3>
+        </div>
+        <div class="answer-area">
+          <p>請在此描述一件真實經歷，說明當時產生的情緒、你如何冷靜下來、如何處理問題，以及從中學到什麼。</p>
+        </div>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">6</div>
+          <h3>關於這份申請網頁，分享一個開發時的技術心得。</h3>
+        </div>
+        <div class="answer-area">
+          <p>請在此填寫你製作這份網頁時的技術心得，例如 HTML 語意結構、CSS 單欄排版、響應式設計、主題色設定或 GitHub Pages 部署經驗。</p>
+        </div>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">7</div>
+          <h3>如何看待人工智慧的發展對軟體工程師的影響？</h3>
+        </div>
+        <div class="answer-area">
+          <p>請在此填寫你對 AI 與軟體工程師關係的看法，例如 AI 如何改變學習路徑、開發流程、Junior Developer 的角色與工程師未來競爭力。</p>
+        </div>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">8</div>
+          <h3>從上次提出申請至今，多做了哪些努力？</h3>
+        </div>
+        <div class="answer-area">
+          <p>第一次申請可填寫：第一次申請，暫無需回答。若不是第一次申請，請填寫這段期間新增的學習、作品、練習、反思或技術進步。</p>
+        </div>
+        <p class="note">備註：如果這是第一次申請，可以保留簡短說明，不需要硬寫內容。</p>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">9</div>
+          <h3>其他想要對我們說的事情？</h3>
+        </div>
+        <div class="answer-area">
+          <p>請在此補充你想表達的內容，例如參訓決心、學習態度、個人特質、期待，或希望審查者額外了解的事情。</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 軟體工程訓練申請回覆｜GitHub Pages</p>
+  </footer>
+</body>
+</html>
