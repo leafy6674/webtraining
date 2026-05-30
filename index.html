@@ -129,7 +129,7 @@
       gap: 14px;
       margin-bottom: 16px;
     }
-
+/* 
     .question-number {
       flex: 0 0 auto;
       display: inline-flex;
@@ -142,18 +142,37 @@
       color: var(--primary-dark);
       font-weight: 800;
       border: 1px solid #bbf7d0;
+    } */
+
+    .question-number {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 60px;
+      height: 60px;
+
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--primary-dark);
+
+      font-size: 1.8rem;
+      font-weight: 900;
+
+      border: 1px solid #bbf7d0;
     }
 
     .question-card h3 {
       margin: 2px 0 0;
-      font-size: 1.16rem;
+      font-size: 1.55rem;
       color: #111827;
       line-height: 1.5;
     }
     .question-subtitle {
       margin: 0.5rem 0 1.5rem 4rem;
 
-      font-size: 1.35rem;
+      font-size: 1.55rem;
       font-weight: 800;
 
       color: #1d4ed8;
@@ -181,7 +200,7 @@
       max-width: 100%;
       margin: 0 0 1rem 0;
 
-      font-size: 1.28rem;
+      font-size: 1.42rem;
       line-height: 2.0;
       text-align: left;
       text-indent: 2em;
@@ -200,6 +219,11 @@
 
     .answer-area.narrow-answer .no-indent {
       text-indent: 0;
+    }
+
+    .answer-area ul {
+        font-size: 1.35rem;
+        line-height: 2;
     }
 
     .code-compare {
@@ -271,14 +295,7 @@
       line-height: 1;
     }
 
-    .ai-question-top h3 {
-      /* margin: 0;
-      text-align: left;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: #0b2f7f;
-      letter-spacing: 0.03em; */
-    }
+
 
     .ai-answer-area {
       background: rgba(255, 255, 255, 0.92);
@@ -292,7 +309,7 @@
 
     .ai-answer-area h4 {
       margin: 1.5rem 0 0.5rem;
-      font-size: 1.35rem;
+      font-size: 1.55rem;
       font-weight: 800;
       color: #164bb3;
       
@@ -327,9 +344,13 @@
 
 
 
+
       .question-number {
-        width: 36px;
-        height: 36px;
+
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+          
       }
 
       .essay-content {
@@ -409,10 +430,8 @@
           <p>
             我大學主修 Computer Science，
             在學期間接觸過資料結構、演算法、入門離散數學(大二程度)。
-          </p>
-
-          <p>
-            在所有技術領域中，我相對最擅長的是演算法與邏輯思考，演算法課程成績為 A-。
+            在所有技術領域中，我相對最擅長的是演算法，以及Abstraction(抽象化)理解
+            DataStructure & Algorithms 課程成績為 A-。
           </p>
 
           <p>
@@ -459,35 +478,41 @@
           <div class="question-number">3</div>
           <h3>如果參與這個訓練，會怎麼安排學習時間？</h3>
         </div>
-        <div class="answer-area">
 
-          <p> 我看過許多關於學習效率的資料,<br>
-              知道每個仁最佳的學習節奏差異很大。<br>
-              引此我會依照自己的專注力狀態, <br>
-              適當調整當日的複習強度, 而不是單純追求長時間。
+
+        <div class="answer-area">
+          <p>
+            我看過許多關於學習效率的資料，
+            知道每個仁最佳的學習節奏差異很大。
+            引此我會依照自己的專注力狀態，
+            適當調整當日的複習強度，而不是單純追求長時間。
           </p>
-          <p> 課程第一階段前半(6.8-7.5.2026)，由於仍維持工作狀態，<br>
-              我預計利用平日晚間進行學習。<br>
-              週一至週五安排晚上 7pm - 11pm投入課程與作業練習；<br>
-              週末則安排下午 1pm-5pm 以及晚上 7pm-11pm 作為主要學習時段。<br>
-              由於夜間環境較安靜，也較容易專心思考與撰寫程式，<br>
-              因此會將重要的實作內容安排在這個時段完成。<br>
+
+          <p>
+            課程第一階段前半(6.8-7.5.2026)，由於仍維持工作狀態，
+            我預計利用平日晚間進行學習。
+            週一至週五安排晚上 7pm - 11pm投入課程與作業練習；
+            週末則安排下午 1pm-5pm 以及晚上 7pm-11pm 作為主要學習時段。
+            由於夜間環境較安靜，也較容易專心思考與撰寫程式，
+            因此會將重要的實作內容安排在這個時段完成。
           </p>
-          <p> 課程第一階段後半 7.6.2026開始,<br>
-              以及第二階段和第三階段, <br>
-              我計畫辭去目前工作,<br>
-              轉為全職學習狀態。 <br>
-              屆時預計將每天上午 10am-12pm <br>
-              用於消化理論知識與閱讀技術文件；<br>
-              下午 2pm-5pm 針對自己的弱點進行補強，<br>
-              並保留適度休息與運動時間；<br>
-              晚上 7pm-11pm 點則集中進行程式開發、專案實作與成果整理。
-      
+
+          <p>
+            課程第一階段後半 7.6.2026開始，
+            以及第二階段和第三階段，
+            我計畫辭去目前工作，
+            轉為全職學習狀態。
+          </p>
+
+          <p>
+            屆時(5th to 24th week)預計將每天上午 10am-12pm
+            用於消化理論知識與閱讀技術文件；
+            下午 2pm-5pm 針對自己的弱點進行補強，
+            並保留適度休息與運動時間；
+            晚上 7pm-11pm 點則集中進行程式開發、專案實作與成果整理。
           </p>
         </div>
       </article>
-
-
 
       <article class="question-card">
         <div class="question-top">
@@ -743,13 +768,33 @@
           <div class="question-number">9</div>
           <h3>其他想要對我們說的事情？</h3>
         </div>
+
         <div class="answer-area">
           <p>
-            我曾經親眼看過老師願意在現場只有3名學生的情況, 依然願意教學。
+            我曾經親眼看過老師在現場只有3名學生的情況，依然現場親授教學。
             我很感激老師對教育的熱情與堅持。
+          </p>
+
+          <p>
+            這次訓練，我下了很大的決心。
+            我預先準備好至少6個月的生活費用以及學費，
+            第二階段跟第三階段我會在台北市定居，
+            依據第5周到第24周的規劃,
+            選擇全職現場投入。
+          </p>
+
+          <p>
+            我知道軟體工程並不是一條輕鬆的路，
+    
+            透過這次訓練，渴望從頭開始，
+            建立完整的網頁開發能力、專案開發經驗與團隊合作能力，
+            讓自己有機會重新回到軟體工程領域發展。
+            如果通過審核， 將盡全力完成每個階段的學習與專案挑戰。
           </p>
         </div>
       </article>
+
+
     </section>
   </main>
 
