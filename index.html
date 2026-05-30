@@ -62,6 +62,8 @@
       font-weight: 800;
     }
 
+    
+
     header p {
       margin: 0 auto;
       max-width: 780px;
@@ -148,6 +150,17 @@
       color: #111827;
       line-height: 1.5;
     }
+    .question-subtitle {
+      margin: 0.5rem 0 1.5rem 4rem;
+
+      font-size: 1.35rem;
+      font-weight: 800;
+
+      color: #1d4ed8;
+
+      border-left: 5px solid #60a5fa;
+      padding-left: 0.8rem;
+    }
 
     .answer-area {
       min-height: 170px;
@@ -157,20 +170,68 @@
       background: var(--soft-2);
       /* color: #64748b; */
       color: #1f2937;
-
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
     }
 
 
     .answer-area p {
+      width: 30em;
+      max-width: 100%;
       margin: 0 0 1rem 0;
-      text-align: justify;
-      
+
+      font-size: 1.28rem;
+      line-height: 2.0;
+      text-align: left;
       text-indent: 2em;
     }
 
 
     .answer-area p:last-child {
       margin-bottom: 0;
+    }
+
+
+    .answer-area.narrow-answer p {
+      width: 30em;
+      max-width: 100%;
+    }
+
+    .answer-area.narrow-answer .no-indent {
+      text-indent: 0;
+    }
+
+    .code-compare {
+      width: min(100%, 42em);
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 1.5rem auto;
+      background: #ffffff;
+      border: 1px solid #94a3b8;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .code-compare td {
+      width: 50%;
+      padding: 32px 48px;
+      vertical-align: top;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #1f2937;
+    }
+
+    .code-compare td + td {
+      border-left: 1px solid #94a3b8;
+    }
+
+    .code-compare strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      color: #14532d;
     }
 
     .note {
@@ -185,6 +246,65 @@
       color: var(--muted);
       font-size: 0.95rem;
     }
+
+    
+    .ai-card {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+      padding: 2rem;
+      border-radius: 18px;
+    }
+
+    .ai-question-top {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.3rem;
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+
+    .ai-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #174ea6;
+      line-height: 1;
+    }
+
+    .ai-question-top h3 {
+      /* margin: 0;
+      text-align: left;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #0b2f7f;
+      letter-spacing: 0.03em; */
+    }
+
+    .ai-answer-area {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #c9d8ef;
+      border-radius: 14px;
+      padding: 2rem 2.4rem;
+      color: #1f2937;
+      line-height: 1.9;
+      font-size: 1.08rem;
+    }
+
+    .ai-answer-area h4 {
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #164bb3;
+      
+    }
+
+
+
+    .ai-answer-area p {
+      margin: 0 0 1rem 0;
+      text-align: left;
+    }
+
 
     @media (max-width: 760px) {
       header {
@@ -205,6 +325,8 @@
         gap: 12px;
       }
 
+
+
       .question-number {
         width: 36px;
         height: 36px;
@@ -214,30 +336,9 @@
         max-width: 360px;
         margin: 20 auto;
       }
-      .code-compare {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 1rem 0;
-        background: #ffffff;
-      }
-
-      .code-compare td {
-        width: 50%;
-        padding: 18px;
-        border: 1px solid #94a3b8;
-        vertical-align: top;
-
-        font-family: Consolas, Monaco, monospace;
-        font-size: 1rem;
-        line-height: 1.8;
-        color: #1f2937;
-      }
-
-      .code-compare strong {
-        font-family: "Noto Sans TC", sans-serif;
-        color: #14532d;
-      } 
     }
+
+    
   </style>
 </head>
 <body>
@@ -270,7 +371,7 @@
           </p>
       
           <p>
-            近年來，我越來越明確知道自己仍然想回到 IT 領域發展，
+            3年來，我越來越明確知道自己仍然想回到 IT 領域發展，
             因此希望透過這次 24 週的網頁設計與全端開發訓練，
             重新建立完整的技術能力與實作經驗。
           </p>
@@ -296,40 +397,62 @@
       </article>
       
 
-      
+
       <article class="question-card">
         <div class="question-top">
           <div class="question-number">2</div>
           <h3>曾經做過哪些軟體工程技術相關的學習？若有作品請分享給我們。</h3>
         </div>
+
         <div class="answer-area">
+
           <p>
-            我大學主修 Computer Science，<br>
+            我大學主修 Computer Science，
             在學期間接觸過資料結構、演算法、入門離散數學(大二程度)。
           </p>
-          <p>
-            在所有技術領域中，我相對最擅長的是演算法與邏輯思考，演算法課程成績為 A-。<br>
-            相較之下，網頁開發一直是我比較不熟悉、也較缺乏實作經驗的部分，因此希望透過這次訓練補強自己的弱項。<br>
-            最近三年，我持續利用網路資源自學程式與軟體工程相關技術，包含：<br>
-            Python 深度學習入門（彭彭老師）<br>
-            JavaScript 網頁前端工程入門（彭彭老師）<br>
-            LeetCode 演算法刷題練習
-          </p>
-          <p>            
-            目前主要使用 C++、Java 與 Python 練習演算法題目，內容包含：<br>
-            Hash Table <br>
-            Two Pointers <br>
-            Stack / Queue <br>
-            Binary Search <br>
-            我也持續透過 LeetCode 與技術社群培養程式思維與問題分析能力。 <br>
-            平時刷題目的學習資源： <br>
-            代碼隨想錄 <br>
-            https://github.com/youngyangyang04/leetcode-master
 
+          <p>
+            在所有技術領域中，我相對最擅長的是演算法與邏輯思考，演算法課程成績為 A-。
           </p>
+
+          <p>
+            相較之下，網頁開發一直是我比較不熟悉、也較缺乏實作經驗的部分，
+            因此希望透過這次訓練補強自己的弱項。
+            最近三年，我持續利用網路資源自學程式與軟體工程相關技術，包含：
+          </p>
+
+          <ul>
+            <li>Python 深度學習入門（彭彭老師）</li>
+            <li>JavaScript 網頁前端工程入門（彭彭老師）</li>
+            <li>LeetCode 演算法刷題練習</li>
+          </ul>
+
+          <p>
+            目前主要使用 C++、Java 與 Python 練習演算法題目，內容包含：
+            Hash Table、Two Pointers、Stack / Queue、Binary Search 等基礎題型。
+          </p>
+
+
+
+          <p>
+            我也持續透過 LeetCode 與技術社群培養程式思維與問題分析能力。
+            平時刷題目的學習資源：
+          </p>
+
+          <ul>
+            <li>代碼隨想錄</li>
+            <li>
+              <a href="https://github.com/youngyangyang04/leetcode-master"
+                target="_blank"
+                rel="noopener noreferrer">
+                https://github.com/youngyangyang04/leetcode-master
+              </a>
+            </li>
+          </ul>
 
         </div>
       </article>
+
 
       <article class="question-card">
         <div class="question-top">
@@ -372,14 +495,26 @@
           <h3>請簡述對於軟體工程的領域偏好和職涯想像。</h3>
         </div>
         
-        <div class="answer-area">
+        <div class="answer-area narrow-answer">
           <p>
-            我對軟體工程中「資料分析、資料整理、系統邏輯歸納」這類偏向分析型的工作較有興趣。
+            我對軟體工程中
+            「資料分析、資料整理、
+            系統邏輯歸納」
+            這類偏向分析型的工作
+            較有興趣。
           </p>
 
           <p>
-            除了應用層開發之外，我也對 Programming Language Engineering（程式語言工程）與不同語言背後的設計理念很有興趣。
-            比起單純把功能做出來，我更喜歡研究語言本身的設計取捨，以及它們如何影響效能、記憶體行為與開發思維。
+            除了應用層開發之外，
+            我也對 Programming Language Engineering
+            （程式語言工程）
+            與不同語言背後的設計理念
+            很有興趣。
+            比起單純把功能做出來，
+            我更喜歡研究語言本身的
+            設計取捨，
+            以及它們如何影響效能、
+            記憶體行為與開發思維。
           </p>
 
           <p>例如：</p>
@@ -387,28 +522,41 @@
           <table class="code-compare">
             <tr>
               <td>
-                <strong>C++：</strong><br>
+                <strong>C++：</strong>
                 for (string str : strs) { ... }
               </td>
               <td>
-                <strong>Java：</strong><br>
+                <strong>Java：</strong>
                 for (String str : strs) { ... }
               </td>
             </tr>
           </table>
 
           <p>
-            （語法都會編譯成功，但語意完全不同。）
+            （語法都會編譯成功，
+            但語意完全不同。）
           </p>
 
           <p>
-            職涯方面，我想走軟體工程、資料處理或偏後端邏輯相關方向發展。
-            我覺得剛開始進入業界時，應該還需要一段時間自我抗壓訓練，適應實務開發節奏與團隊合作模式。
+            職涯方面，
+            我想走軟體工程、
+            資料處理或偏後端邏輯
+            相關方向發展。
+            我覺得剛開始進入業界時，
+            應該還需要一段時間
+            自我抗壓訓練，
+            適應實務開發節奏
+            與團隊合作模式。
           </p>
 
           <p>
-            除了技術能力之外，還需要良好的壓力管理與持續學習能力，逐步建立穩定的工作節奏，
-            在技術成長、工作生產與生活平衡三者之間找到適合自己的方式。
+            除了技術能力之外，
+            還需要良好的壓力管理
+            與持續學習能力，
+            逐步建立穩定的工作節奏，
+            在技術成長、工作生產，
+            與生活平衡三者之間
+            找到適合自己的方式。
           </p>
         </div>
         
@@ -420,7 +568,40 @@
           <h3>請描述一件產生明顯負面情緒的經歷，如何處理該情緒？</h3>
         </div>
         <div class="answer-area">
-          <p>請在此描述一件真實經歷，說明當時產生的情緒、你如何冷靜下來、如何處理問題，以及從中學到什麼。</p>
+          <p>
+            經歷：Coding 作業寫不完。
+          </p>
+
+          <p>
+            有一次，我同時在時間管理跟工時預測犯下錯誤。
+            面對截止時間很近的程式作業，我產生了很明顯的焦慮感。
+            原本以為4小時可以完成，但真正開始實作後才發現，
+            這其實是需要12小時以上才能做好品質的工程。當下會出現很強的挫折感。
+          </p>
+
+          <p>
+            司馬懿的名言：「大勝易，善敗難」。
+            在敗局的情況，要有敗局的打法。
+            先接受現實，錯誤已經造成，我沉靜下來思考：
+              <span style="color: #2563eb; font-weight: 700;">
+                「有什麼事情是真正能在 4 小時之內完成的事情？」
+              </span>
+          </p>
+
+          <p>
+            我發現，這時候花 1 小時緩和壓力反而是我需要的東西。
+            接著我讓自己短暫離開高壓環境，例如去吃飯、買杯咖啡、慢慢走回實驗室，
+            讓情緒和注意力重新恢復。
+            等重置身體之後，整理優先順序，先完成核心功能，
+            而不是固守使用 12 小時的標準工序表。
+          </p>
+
+          <p>
+            隔天，我檢討問題來源。這類情況通常不是單純「不夠努力」，
+            而是事前低估了工作的複雜度。尤其程式開發不是純粹的體力活，
+            更消耗精神專注。自此事件後，我大幅度更改時間估算與進度預留，
+            避免再次把高品質工程誤判成短時間能完成的工作。
+          </p>
         </div>
       </article>
 
@@ -430,19 +611,121 @@
           <h3>關於這份申請網頁，分享一個開發時的技術心得。</h3>
         </div>
         <div class="answer-area">
-          <p>請在此填寫你製作這份網頁時的技術心得，例如 HTML 語意結構、CSS 單欄排版、響應式設計、主題色設定或 GitHub Pages 部署經驗。</p>
+          <p>
+            製作時，
+            我最大的收穫不是學會某個特定 CSS 語法，
+            而是重新理解前端樣式組織的方式。
+          </p>
+
+          <p>
+            由於 CSS 的規則相當多，我需要重新複習。
+            因此在開發過程中，我大量利用 AI 工具協助調整版面與樣式
+            ，再反過來研究 AI 產生的程式碼。
+          </p>
+
+          <p>
+            例如在調整閱讀體驗時，我看到：
+          </p>
+
+          <table style="
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1.4rem 0;
+            background: #ffffff;
+            border: 1px solid #94a3b8;
+            border-radius: 10px;
+            overflow: hidden;
+          ">
+            <tr>
+              <td style="
+                padding: 20px 24px;
+                background: #f8fafc;
+                text-align: left;
+              ">
+                <pre style="
+                  margin: 0;
+                  padding-left: 2em;
+                  text-align: left;
+                  font-family: Consolas, Monaco, monospace;
+                  font-size: 1rem;
+                  line-height: 1.8;
+                  color: #111827;
+                  white-space: pre-wrap;
+                "><span style="color:#d97706;font-weight:700;">.answer-area p</span> {
+              width: 30em;
+              max-width: 100%;
+              line-height: 1.9;
+              text-align: left;
+          }</pre>
+              </td>
+            </tr>
+          </table>
+
+          <p>
+            原本我只知道這段程式碼能讓文章更容易閱讀，
+            但進一步觀察後，我開始理解 <strong>.answer-area p</strong> 
+            其實是一種 Selector 利用命名規則來進行框架結構設計方式
+            ，用來描述特定區塊內文字的樣式規則。
+          </p>
+
+          <p>
+            聯想到端框架中常見的元件化（Component）設計思維：透過
+            結構化命名，讓某個畫面樣板能夠被重複使用。
+          </p>
+
+          <p>
+            因此，我認為 AI 是一種互動式學習媒介。
+            透過與 AI 的反覆討論與修改，
+            更快理解陌生技術背後的設計概念，
+            並逐步建立自己的知識體系。
+          </p>
         </div>
       </article>
 
-      <article class="question-card">
-        <div class="question-top">
-          <div class="question-number">7</div>
-          <h3>如何看待人工智慧的發展對軟體工程師的影響？</h3>
-        </div>
-        <div class="answer-area">
-          <p>請在此填寫你對 AI 與軟體工程師關係的看法，例如 AI 如何改變學習路徑、開發流程、Junior Developer 的角色與工程師未來競爭力。</p>
-        </div>
-      </article>
+<article class="question-card ai-card">
+  <div class="question-top ai-question-top">
+    <div class="question-number">7. </div>
+    <h3> 如何看待人工智慧的發展對軟體工程師的影響？</h3>
+  </div>
+
+ 
+
+  <div class="answer-area ai-answer-area">
+    
+    <div class="question-subtitle">
+      對軟體工程師的影響 有三個層面：
+    </div>
+
+    <h4>更改IT初學者的學習路徑</h4>
+    <p>
+      人工智慧改變了初學者的學習路徑。過去學習程式設計主要依靠教科書、文件、搜尋引擎以及社群論壇；現在 AI 工具能夠快速整理資訊、提供範例程式碼，並協助解釋抽象概念。因此，初學者的學習效率與 AI 工具的使用能力有高度關聯。
+    </p>
+    <p>
+      除非你自己早已是資深軟體工程師, 已經建立起技術護城河 ; 否則對於新手來說完全拒絕使用AI工具, 或著使用經驗不足, 手感不流暢, 跟其他 Jr Developer 相比在開發效率上面容易吃虧。
+    </p>
+
+    <h4>更改JR Developer 的工作腳色</h4>
+    <p>
+      AI 正在改變 Junior Developer 的工作角色。過去許多初階工程師需要花費大量時間查詢文件、除錯與撰寫重複性程式碼，可以由 AI 協助完成的比重會逐年增高。因此，新手工程師需要學會如何與 AI 協同開發，將 AI 視為技術顧問、程式碼審查助手與學習陪練者。
+    </p>
+
+    <h4>更改企業對軟體工程師的價值定位</h4>
+    <p>
+      未來在定義Junior工程師的價值, 權重更偏向於AI使用綜合熟悉度 。企業對於傳統的程式能力與問題解決能力之外，如何有效運用 AI 工具提升開發效率、驗證結果正確性，以及將需求轉化為精準指令，將成為重要的職場競爭力。
+    </p>
+    <p>
+      AI 能夠提供大量知識與程式碼建議，但如何從眾多資訊中提出關鍵問題、驗證答案是否合理，
+      仍然需要工程師的專業判斷。工程師最大的競爭, 不是AI 本身, 而是”另一個能跟AI協作生產的工程師” 。
+      新世界拚的不是工程師誰寫程式碼更快, 而是誰更擅長從模糊理解的千萬知識點中, 
+      對AI 發出關鍵提問 。把人對於知識的人為理解, 精準映射到人工智慧體的輸入, 使輸出更貼近真實需求。
+    </p>
+  </div>
+</article>
+
+<style>
+
+</style>
 
       <article class="question-card">
         <div class="question-top">
@@ -450,9 +733,9 @@
           <h3>從上次提出申請至今，多做了哪些努力？</h3>
         </div>
         <div class="answer-area">
-          <p>第一次申請可填寫：第一次申請，暫無需回答。若不是第一次申請，請填寫這段期間新增的學習、作品、練習、反思或技術進步。</p>
+          <p>第一次申請</p>
         </div>
-        <p class="note">備註：如果這是第一次申請，可以保留簡短說明，不需要硬寫內容。</p>
+        
       </article>
 
       <article class="question-card">
@@ -461,7 +744,10 @@
           <h3>其他想要對我們說的事情？</h3>
         </div>
         <div class="answer-area">
-          <p>請在此補充你想表達的內容，例如參訓決心、學習態度、個人特質、期待，或希望審查者額外了解的事情。</p>
+          <p>
+            我曾經親眼看過老師願意在現場只有3名學生的情況, 依然願意教學。
+            我很感激老師對教育的熱情與堅持。
+          </p>
         </div>
       </article>
     </section>
