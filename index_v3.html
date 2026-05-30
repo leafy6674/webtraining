@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>軟體工程訓練申請回覆</title>
+  <style>
+    :root {
+      --bg: #f4fbf6;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #15803d;
+      --primary-dark: #14532d;
+      --primary-light: #22c55e;
+      --border: #cfe7d6;
+      --soft: #ecfdf3;
+      --soft-2: #f6fff8;
+      --shadow: rgba(15, 23, 42, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      background: linear-gradient(135deg, #edfdf4 0%, #f7fff9 45%, #dcfce7 100%);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    header {
+      padding: 72px 20px 52px;
+      text-align: center;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.22), transparent 32%),
+        linear-gradient(135deg, #14532d, #15803d, #22c55e);
+      color: white;
+    }
+
+    header .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.36);
+      border-radius: 999px;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      opacity: 0.95;
+    }
+
+    header h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      letter-spacing: 0.04em;
+      font-weight: 800;
+    }
+
+    header p {
+      margin: 0 auto;
+      max-width: 780px;
+      font-size: 1.05rem;
+      opacity: 0.94;
+    }
+
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: -36px auto 64px;
+    }
+
+    .intro-card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 24px 60px var(--shadow);
+      backdrop-filter: blur(12px);
+      margin-bottom: 28px;
+    }
+
+    .intro-card h2 {
+      margin: 0 0 10px;
+      color: var(--primary-dark);
+      font-size: 1.45rem;
+    }
+
+    .intro-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .question-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .question-card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .question-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 7px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary-dark), var(--primary-light));
+    }
+
+    .question-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .question-number {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--primary-dark);
+      font-weight: 800;
+      border: 1px solid #bbf7d0;
+    }
+
+    .question-card h3 {
+      margin: 2px 0 0;
+      font-size: 1.16rem;
+      color: #111827;
+      line-height: 1.5;
+    }
+
+    .answer-area {
+      min-height: 170px;
+      padding: 18px 20px;
+      border: 1.5px dashed #86efac;
+      border-radius: 18px;
+      background: var(--soft-2);
+      /* color: #64748b; */
+      color: #1f2937;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    .answer-area p {
+      width: 30em;
+      max-width: 100%;
+      margin: 0 0 1rem 0;
+
+      font-size: 1.28rem;
+      line-height: 2.0;
+      text-align: left;
+      text-indent: 2em;
+    }
+
+
+    .answer-area p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    .answer-area.narrow-answer p {
+      width: 30em;
+      max-width: 100%;
+    }
+
+    .answer-area.narrow-answer .no-indent {
+      text-indent: 0;
+    }
+
+    .code-compare {
+      width: min(100%, 42em);
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 1.5rem auto;
+      background: #ffffff;
+      border: 1px solid #94a3b8;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .code-compare td {
+      width: 50%;
+      padding: 32px 48px;
+      vertical-align: top;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #1f2937;
+    }
+
+    .code-compare td + td {
+      border-left: 1px solid #94a3b8;
+    }
+
+    .code-compare strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      color: #14532d;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 20px 48px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    
+
+
+
+    @media (max-width: 760px) {
+      header {
+        padding: 56px 20px 42px;
+      }
+
+      main {
+        margin-top: -26px;
+      }
+
+      .intro-card,
+      .question-card {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      .question-top {
+        gap: 12px;
+      }
+
+      .question-number {
+        width: 36px;
+        height: 36px;
+      }
+
+      .essay-content {
+        max-width: 360px;
+        margin: 20 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Application Portfolio</div>
+    <h1>軟體工程訓練營 24周 全棧網頁系統開發</h1>
+
+  </header>
+
+  <main>
+    <section class="intro-card">
+
+    </section>
+
+    <section class="question-list">
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">1</div>
+          <h3>個人簡介和申請動機？</h3>
+        </div>
+
+        <div class="answer-area">
+      
+          <p>
+                我是盧建廷，畢業於 California State University, Bakersfield，
+            取得 Computer Science 學士學位。
+            雖然是資訊科學系出身，但我一直認為自己並不是那種天生擅長寫程式的人。
+            在過去求學過程中，我發現自己的程式基礎與實作能力仍有許多不足，
+            也因此一直希望能重新扎實地補強這部分能力。
+          </p>
+      
+          <p>
+            近年來，我越來越明確知道自己仍然想回到 IT 領域發展，
+            因此希望透過這次 24 週的網頁設計與全端開發訓練，
+            重新建立完整的技術能力與實作經驗。
+          </p>
+      
+          <p>
+            目前我暫時在銀行擔任基層行員，
+            但我知道這並不是自己長期想發展的方向。
+            我希望能在老師的指導下，從根基開始系統性學習網頁開發技術，
+            包含前端、後端、資料庫與專案開發流程，
+            並透過實際專案累積作品與經驗，
+            盡快重新回到 IT 相關工作領域。
+          </p>
+      
+          <p>
+            我知道自己的實作能力可能不算突出，
+            但我願意投入時間與努力，
+            把過去較弱的程式能力慢慢補強。
+            我也期待能透過這次訓練，
+            建立更扎實的技術基礎與持續學習的能力。
+          </p>
+      
+        </div>
+      </article>
+      
+
+      
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">2</div>
+          <h3>曾經做過哪些軟體工程技術相關的學習？若有作品請分享給我們。</h3>
+        </div>
+        <div class="answer-area">
+          <p>
+            我大學主修 Computer Science，<br>
+            在學期間接觸過資料結構、演算法、入門離散數學(大二程度)。
+          </p>
+          <p>
+            在所有技術領域中，我相對最擅長的是演算法與邏輯思考，演算法課程成績為 A-。<br>
+            相較之下，網頁開發一直是我比較不熟悉、也較缺乏實作經驗的部分，因此希望透過這次訓練補強自己的弱項。<br>
+            最近三年，我持續利用網路資源自學程式與軟體工程相關技術，包含：<br>
+            Python 深度學習入門（彭彭老師）<br>
+            JavaScript 網頁前端工程入門（彭彭老師）<br>
+            LeetCode 演算法刷題練習
+          </p>
+          <p>            
+            目前主要使用 C++、Java 與 Python 練習演算法題目，內容包含：<br>
+            Hash Table <br>
+            Two Pointers <br>
+            Stack / Queue <br>
+            Binary Search <br>
+            我也持續透過 LeetCode 與技術社群培養程式思維與問題分析能力。 <br>
+            平時刷題目的學習資源： <br>
+            代碼隨想錄 <br>
+            https://github.com/youngyangyang04/leetcode-master
+
+          </p>
+
+        </div>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">3</div>
+          <h3>如果參與這個訓練，會怎麼安排學習時間？</h3>
+        </div>
+        <div class="answer-area">
+
+          <p> 我看過許多關於學習效率的資料,<br>
+              知道每個仁最佳的學習節奏差異很大。<br>
+              引此我會依照自己的專注力狀態, <br>
+              適當調整當日的複習強度, 而不是單純追求長時間。
+          </p>
+          <p> 課程第一階段前半(6.8-7.5.2026)，由於仍維持工作狀態，<br>
+              我預計利用平日晚間進行學習。<br>
+              週一至週五安排晚上 7pm - 11pm投入課程與作業練習；<br>
+              週末則安排下午 1pm-5pm 以及晚上 7pm-11pm 作為主要學習時段。<br>
+              由於夜間環境較安靜，也較容易專心思考與撰寫程式，<br>
+              因此會將重要的實作內容安排在這個時段完成。<br>
+          </p>
+          <p> 課程第一階段後半 7.6.2026開始,<br>
+              以及第二階段和第三階段, <br>
+              我計畫辭去目前工作,<br>
+              轉為全職學習狀態。 <br>
+              屆時預計將每天上午 10am-12pm <br>
+              用於消化理論知識與閱讀技術文件；<br>
+              下午 2pm-5pm 針對自己的弱點進行補強，<br>
+              並保留適度休息與運動時間；<br>
+              晚上 7pm-11pm 點則集中進行程式開發、專案實作與成果整理。
+      
+          </p>
+        </div>
+      </article>
+
+
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">4</div>
+          <h3>請簡述對於軟體工程的領域偏好和職涯想像。</h3>
+        </div>
+        
+        <div class="answer-area narrow-answer">
+          <p>
+            我對軟體工程中
+            「資料分析、資料整理、
+            系統邏輯歸納」
+            這類偏向分析型的工作
+            較有興趣。
+          </p>
+
+          <p>
+            除了應用層開發之外，
+            我也對 Programming Language Engineering
+            （程式語言工程）
+            與不同語言背後的設計理念
+            很有興趣。
+            比起單純把功能做出來，
+            我更喜歡研究語言本身的
+            設計取捨，
+            以及它們如何影響效能、
+            記憶體行為與開發思維。
+          </p>
+
+          <p>例如：</p>
+
+          <table class="code-compare">
+            <tr>
+              <td>
+                <strong>C++：</strong>
+                for (string str : strs) { ... }
+              </td>
+              <td>
+                <strong>Java：</strong>
+                for (String str : strs) { ... }
+              </td>
+            </tr>
+          </table>
+
+          <p>
+            （語法都會編譯成功，
+            但語意完全不同。）
+          </p>
+
+          <p>
+            職涯方面，
+            我想走軟體工程、
+            資料處理或偏後端邏輯
+            相關方向發展。
+            我覺得剛開始進入業界時，
+            應該還需要一段時間
+            自我抗壓訓練，
+            適應實務開發節奏
+            與團隊合作模式。
+          </p>
+
+          <p>
+            除了技術能力之外，
+            還需要良好的壓力管理
+            與持續學習能力，
+            逐步建立穩定的工作節奏，
+            在技術成長、工作生產，
+            與生活平衡三者之間
+            找到適合自己的方式。
+          </p>
+        </div>
+        
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">5</div>
+          <h3>請描述一件產生明顯負面情緒的經歷，如何處理該情緒？</h3>
+        </div>
+        <div class="answer-area">
+          <p>
+            經歷：Coding 作業寫不完。
+          </p>
+
+          <p>
+            有一次，我同時在時間管理跟工時預測犯下錯誤。
+            面對截止時間很近的程式作業，我產生了很明顯的焦慮感。
+            原本以為4小時可以完成，但真正開始實作後才發現，
+            這其實是需要12小時以上才能做好品質的工程。當下會出現很強的挫折感。
+          </p>
+
+          <p>
+            司馬懿的名言：「大勝易，善敗難」。
+            在敗局的情況，要有敗局的打法。
+            先接受現實，錯誤已經造成，我沉靜下來思考：
+              <span style="color: #2563eb; font-weight: 700;">
+                「有什麼事情是真正能在 4 小時之內完成的事情？」
+              </span>
+          </p>
+
+          <p>
+            我發現，這時候花 1 小時緩和壓力反而是我需要的東西。
+            接著我讓自己短暫離開高壓環境，例如去吃飯、買杯咖啡、慢慢走回實驗室，
+            讓情緒和注意力重新恢復。
+            等重置身體之後，整理優先順序，先完成核心功能，
+            而不是固守使用 12 小時的標準工序表。
+          </p>
+
+          <p>
+            隔天，我檢討問題來源。這類情況通常不是單純「不夠努力」，
+            而是事前低估了工作的複雜度。尤其程式開發不是純粹的體力活，
+            更消耗精神專注。自此事件後，我大幅度更改時間估算與進度預留，
+            避免再次把高品質工程誤判成短時間能完成的工作。
+          </p>
+        </div>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">6</div>
+          <h3>關於這份申請網頁，分享一個開發時的技術心得。</h3>
+        </div>
+        <div class="answer-area">
+          <p>
+            製作時，
+            我最大的收穫不是學會某個特定 CSS 語法，
+            而是重新理解前端樣式組織的方式。
+          </p>
+
+          <p>
+            由於 CSS 的規則相當多，我需要重新複習。
+            因此在開發過程中，我大量利用 AI 工具協助調整版面與樣式
+            ，再反過來研究 AI 產生的程式碼。
+          </p>
+
+          <p>
+            例如在調整閱讀體驗時，我看到：
+          </p>
+
+          <table style="
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1.4rem 0;
+            background: #ffffff;
+            border: 1px solid #94a3b8;
+            border-radius: 10px;
+            overflow: hidden;
+          ">
+            <tr>
+              <td style="
+                padding: 20px 24px;
+                background: #f8fafc;
+                text-align: left;
+              ">
+                <pre style="
+                  margin: 0;
+                  padding-left: 2em;
+                  text-align: left;
+                  font-family: Consolas, Monaco, monospace;
+                  font-size: 1rem;
+                  line-height: 1.8;
+                  color: #111827;
+                  white-space: pre-wrap;
+                "><span style="color:#d97706;font-weight:700;">.answer-area p</span> {
+              width: 30em;
+              max-width: 100%;
+              line-height: 1.9;
+              text-align: left;
+          }</pre>
+              </td>
+            </tr>
+          </table>
+
+          <p>
+            原本我只知道這段程式碼能讓文章更容易閱讀，
+            但進一步觀察後，我開始理解 <strong>.answer-area p</strong> 
+            其實是一種 Selector 利用命名規則來進行框架結構設計方式
+            ，用來描述特定區塊內文字的樣式規則。
+          </p>
+
+          <p>
+            聯想到端框架中常見的元件化（Component）設計思維：透過
+            結構化命名，讓某個畫面樣板能夠被重複使用。
+          </p>
+
+          <p>
+            因此，我認為 AI 是一種互動式學習媒介。
+            透過與 AI 的反覆討論與修改，
+            更快理解陌生技術背後的設計概念，
+            並逐步建立自己的知識體系。
+          </p>
+        </div>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">7</div>
+          <h3>如何看待人工智慧的發展對軟體工程師的影響？</h3>
+        </div>
+        <div class="answer-area">
+          <p>請在此填寫你對 AI 與軟體工程師關係的看法，例如 AI 如何改變學習路徑、開發流程、Junior Developer 的角色與工程師未來競爭力。</p>
+        </div>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">8</div>
+          <h3>從上次提出申請至今，多做了哪些努力？</h3>
+        </div>
+        <div class="answer-area">
+          <p>第一次申請可填寫：第一次申請，暫無需回答。若不是第一次申請，請填寫這段期間新增的學習、作品、練習、反思或技術進步。</p>
+        </div>
+        <p class="note">備註：如果這是第一次申請，可以保留簡短說明，不需要硬寫內容。</p>
+      </article>
+
+      <article class="question-card">
+        <div class="question-top">
+          <div class="question-number">9</div>
+          <h3>其他想要對我們說的事情？</h3>
+        </div>
+        <div class="answer-area">
+          <p>請在此補充你想表達的內容，例如參訓決心、學習態度、個人特質、期待，或希望審查者額外了解的事情。</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 軟體工程訓練申請回覆｜GitHub Pages</p>
+  </footer>
+</body>
+</html>
